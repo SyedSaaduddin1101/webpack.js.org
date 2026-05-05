@@ -21,6 +21,16 @@ contributors:
 
 Loaders are transformations that are applied to the source code of a module. They allow you to pre-process files as you `import` or “load” them. Thus, loaders are kind of like “tasks” in other build tools and provide a powerful way to handle front-end build steps. Loaders can transform files from a different language (like TypeScript) to JavaScript or load inline images as data URLs. Loaders even allow you to do things like `import` CSS files directly from your JavaScript modules!
 
+## Visual Representation
+
+Here is a simple diagram to understand how loaders process files:
+
+```mermaid
+graph TD
+A[Source File] --> B[Loader]
+B --> C[Transformed Output]
+```
+
 ## Example
 
 For example, you can use loaders to tell webpack to load a CSS file or to convert TypeScript to JavaScript. To do this, you would start by installing the loaders you need:
