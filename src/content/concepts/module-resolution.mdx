@@ -24,6 +24,22 @@ The dependency module can be from the application code or a third-party library.
 webpack find the module code that needs to be included in the bundle for every such `require`/`import` statement.
 webpack uses [enhanced-resolve](https://github.com/webpack/enhanced-resolve) to resolve file paths while bundling modules.
 
+## Visualizing Module Resolution
+
+The following diagram shows a simplified flow of how webpack resolves modules when you import them:
+
+```mermaid
+graph TD
+A[Import Statement] --> B[Resolve Request]
+B --> C{Is it a relative path?}
+C -->|Yes| D[Resolve relative to current file]
+C -->|No| E[Search in node_modules]
+D --> F[Check file existence]
+E --> F
+F --> G[Return resolved module]
+```
+
+
 ## Resolving rules in webpack
 
 Using `enhanced-resolve`, webpack can resolve three kinds of file paths:
