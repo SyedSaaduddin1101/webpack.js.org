@@ -73,7 +73,31 @@ import "my-module/lib/file";
 ```
 
 Modules are searched for inside all directories specified in [`resolve.modules`](/configuration/resolve/#resolvemodules).
-You can replace the original module path by an alternate path by creating an alias for it using the [`resolve.alias`](/configuration/resolve/#resolvealias) configuration option.
+
+## Using resolve.alias
+
+The `resolve.alias` option allows you to create shortcuts for module paths. This can be useful when:
+
+- Avoiding long relative paths like `../../../components/Button`
+- Simplifying imports across large projects
+- Replacing modules with custom implementations
+
+### Example
+
+```js
+resolve: {
+  alias: {
+    "@components": "/src/components"
+  }
+}
+```
+
+Now you can write:
+
+```js
+import Button from "@components/Button";
+```
+
 
 - If the package contains a `package.json` file, then fields specified in [`resolve.exportsFields`](/configuration/resolve/#resolveexportsfields) configuration options are looked up in order, and the first such field in `package.json` determines the available exports from the package according to the [package exports guideline](/guides/package-exports/).
 
