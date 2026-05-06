@@ -62,6 +62,22 @@ This is a concise way to display loaders, and helps to maintain clean code. It a
 
 Loaders are evaluated/executed from right to left (or from bottom to top). In the example below execution starts with sass-loader, continues with css-loader and finally ends with style-loader. See ["Loader Features"](/concepts/loaders/#loader-features) for more information about loaders order.
 
+### Visualizing Loader Execution Order
+
+Loaders are applied from right to left. Here’s a simple visualization:
+
+```mermaid
+graph LR
+A[sass-loader] --> B[css-loader]
+B --> C[style-loader]
+```
+
+In this example:
+- `sass-loader` runs first  
+- then `css-loader`  
+- finally `style-loader`
+
+
 ```js
 export default {
   module: {
